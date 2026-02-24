@@ -1,0 +1,11 @@
+body {
+    color: #999;
+}
+
+th.sort-asc::after {
+  content: " ↑";
+}
+
+th.sort-desc::after {
+  content: " ↓";
+}
