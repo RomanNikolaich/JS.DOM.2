@@ -8,7 +8,6 @@ async function loadJSON() {
     }
     const data = await response.json();
     return data;
-   // console.log(data);
   } catch (error) {
     console.error('Ошибка:', error);
   }
@@ -20,17 +19,16 @@ function renderFilms(films) {
 
   const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
-  filmsTable.appendChild(thead);
-  filmsTable.appendChild(tbody);
+  filmsTable.append(thead, tbody);
 
   const genHead = genTagsHead(films);
   for (const i of genHead) {
-    thead.appendChild(i);
+    thead.append(i);
   };
   
   const genBody = genTagsBody(films);
   for (let i of genBody) {
-    tbody.appendChild(i);
+    tbody.append(i);
   };
 };
 
@@ -69,7 +67,6 @@ function sortTable(column, ascending = true) {
 
 async function init() {
   const films = await loadJSON();
-  //console.log([...films]);
   renderFilms(films);
 
   const columns = ['id', 'imdb', 'year', 'title'];
